@@ -1,0 +1,15 @@
+{
+  "originHash" : "fad23a1d43eb066a3912f2ab88021d3ec20db39055dbdc67bd1d619b3c6a36bf",
+  "pins" : [
+    {
+      "identity" : "gaypadkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/GaypadKit.git",
+      "state" : {
+        "revision" : "958ddb26fa0c2adbfdcbf1512a8803cc0d79dbf7",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}
