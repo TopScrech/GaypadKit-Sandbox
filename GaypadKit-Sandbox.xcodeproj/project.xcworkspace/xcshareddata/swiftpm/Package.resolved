@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TopScrech/GaypadKit.git",
       "state" : {
-        "revision" : "958ddb26fa0c2adbfdcbf1512a8803cc0d79dbf7",
-        "version" : "1.0.1"
+        "revision" : "23906fcc0b5269cdef8ee86c5064cbd93a278ff0",
+        "version" : "1.0.2"
       }
     }
   ],
