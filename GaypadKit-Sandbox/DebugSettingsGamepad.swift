@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import GaypadKit
 
 struct ContentView: View {
@@ -65,10 +65,10 @@ struct ContentView: View {
             }
             
             Text("Battery: \(Int(gamepad.batteryLevel * 100))%")
-                .font(.largeTitle)
+                .largeTitle()
         }
         .foregroundStyle(gamepad.isConnected ? .primary : .secondary)
-        .font(.largeTitle)
+        .largeTitle()
     }
 }
 

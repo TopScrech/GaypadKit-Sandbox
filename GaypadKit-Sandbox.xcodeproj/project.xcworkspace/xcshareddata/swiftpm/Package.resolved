@@ -1,5 +1,5 @@
 {
-  "originHash" : "fad23a1d43eb066a3912f2ab88021d3ec20db39055dbdc67bd1d619b3c6a36bf",
+  "originHash" : "a07a321ef78c2c2ce062917ffb7206084d8a90b12b1bdded574cf9260126673e",
   "pins" : [
     {
       "identity" : "gaypadkit",
@@ -8,6 +8,33 @@
       "state" : {
         "revision" : "23906fcc0b5269cdef8ee86c5064cbd93a278ff0",
         "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "screchkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/ScrechKit.git",
+      "state" : {
+        "revision" : "004be44029271054abc914820d6cd9e345d5d878",
+        "version" : "1.0.17"
+      }
+    },
+    {
+      "identity" : "swift-update",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/swift-update.git",
+      "state" : {
+        "revision" : "a3dedb962391ed50c774e3fc6966098ed5b0d3b0",
+        "version" : "1.1.2"
+      }
+    },
+    {
+      "identity" : "swiftlintplugins",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
+      "state" : {
+        "revision" : "ef7d692fc6706e8f5628e26bcafaefa445c58a97",
+        "version" : "0.65.1"
       }
     }
   ],

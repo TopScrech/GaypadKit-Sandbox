@@ -13,24 +13,111 @@
   "packages": [
     {
       "kind": "remote",
+      "repository": "https://github.com/TopScrech/ScrechKit.git",
+      "version": {
+        "up-to-next-major-version": "1.0.17"
+      }
+    },
+    {
+      "kind": "remote",
+      "repository": "https://github.com/TopScrech/swift-update.git",
+      "version": {
+        "up-to-next-major-version": "1.1.2"
+      }
+    },
+    {
+      "kind": "remote",
+      "repository": "https://github.com/SimplyDanny/SwiftLintPlugins",
+      "version": {
+        "up-to-next-major-version": "0.65.1"
+      }
+    },
+    {
+      "kind": "remote",
       "repository": "https://github.com/TopScrech/GaypadKit.git",
       "version": {
-        "up-to-next-major-version": "1.0.1",
+        "up-to-next-major-version": "1.0.2",
       },
     },
   ],
   "files": [
+    {
+      "path": ".swiftlint.yml"
+    },
     { "kind": "folder", "path": "GaypadKit-Sandbox", "target-membership": [ "GaypadKit-Sandbox" ] },
     {
       "kind": "group",
       "name": "Products",
       "children": [
+        {
+          "path": "<PRODUCTS>/Package Update Tools.bundle",
+          "id": "07D96D6E4695B05E526D84CD",
+          "type": "wrapper.cfbundle",
+          "index": false
+        },
         { "path": "<PRODUCTS>/GaypadKit-Sandbox.app", "id": "F3BBFB232FCCA4A30016EE42", "type": "wrapper.application", "index": false },
       ],
     },
   ],
   "targets": [
     {
+      "name": "Package Update Tools",
+      "id": "950082D6E29B85BECC45AA4B",
+      "product": "id:07D96D6E4695B05E526D84CD",
+      "build-phases": [],
+      "product-type": "bundle",
+      "dependencies": [
+        {
+          "kind": "package",
+          "package": "swift-update",
+          "product-name": "swift-update"
+        }
+      ],
+      "build-settings": {
+        "SDKROOT": "macosx",
+        "SUPPORTED_PLATFORMS": "macosx",
+        "MACOSX_DEPLOYMENT_TARGET": "13.0",
+        "CODE_SIGNING_ALLOWED": "NO",
+        "GENERATE_INFOPLIST_FILE": "YES",
+        "PRODUCT_BUNDLE_IDENTIFIER": "dev.topscrech.GaypadKit-Sandbox.PackageUpdateTools",
+        "PRODUCT_NAME": "Package Update Tools",
+        "SKIP_INSTALL": "YES"
+      }
+    },
+    {
+      "name": "Check Package Updates",
+      "id": "F5E3A5FC4EBECA80D60118A6",
+      "kind": "aggregate",
+      "dependencies": [
+        "Package Update Tools"
+      ],
+      "build-phases": [
+        {
+          "kind": "script",
+          "name": "Check Package Updates",
+          "run-on-every-build": true,
+          "shell": "/bin/sh",
+          "script": "\"$BUILT_PRODUCTS_DIR/swift-update\" --xcode --path \"$PROJECT_FILE_PATH\" || true"
+        }
+      ],
+      "build-settings": {
+        "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+        "SDKROOT": "macosx",
+        "SKIP_INSTALL": "YES",
+        "SUPPORTED_PLATFORMS": "macosx",
+        "MACOSX_DEPLOYMENT_TARGET": "13.0"
+      }
+    },
+    {
+      "dependencies": [
+        "Check Package Updates",
+        {
+          "kind": "package",
+          "package": "SwiftLintPlugins",
+          "product-name": "SwiftLintBuildToolPlugin",
+          "product-type": "build-tool-plugin"
+        }
+      ],
       "name": "GaypadKit-Sandbox",
       "id": "F3BBFB222FCCA4A30016EE42",
       "product": "Products/GaypadKit-Sandbox.app",
@@ -41,6 +128,13 @@
         "resources",
       ],
       "package-product-members": [
+        {
+          "package": "ScrechKit",
+          "product-name": "ScrechKit",
+          "build-phase": {
+            "build-phase": "frameworks"
+          }
+        },
         {
           "package": "GaypadKit",
           "product-name": "GaypadKit",
